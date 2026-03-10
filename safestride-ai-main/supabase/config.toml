@@ -1,0 +1,7 @@
+project_id = "lvtjuriperjlahbakckm"
+
+[functions.digital-scan]
+verify_jwt = false
+
+[functions.face-scan]
+verify_jwt = false

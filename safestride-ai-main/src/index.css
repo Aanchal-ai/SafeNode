@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 60% 7%;
+    --foreground: 200 20% 95%;
+
+    --card: 220 50% 10%;
+    --card-foreground: 200 20% 95%;
+
+    --popover: 220 50% 10%;
+    --popover-foreground: 200 20% 95%;
+
+    --primary: 180 100% 50%;
+    --primary-foreground: 220 60% 7%;
+
+    --secondary: 215 15% 38%;
+    --secondary-foreground: 200 20% 95%;
+
+    --muted: 220 30% 15%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 45 100% 50%;
+    --accent-foreground: 220 60% 7%;
+
+    --destructive: 0 80% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --emergency: 0 80% 50%;
+    --emergency-foreground: 0 0% 100%;
+
+    --safe: 140 70% 45%;
+    --safe-foreground: 0 0% 100%;
+
+    --danger: 0 70% 50%;
+    --danger-foreground: 0 0% 100%;
+
+    --border: 220 30% 18%;
+    --input: 220 30% 18%;
+    --ring: 180 100% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 220 50% 10%;
+    --sidebar-foreground: 200 20% 95%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 220 60% 7%;
+    --sidebar-accent: 220 30% 15%;
+    --sidebar-accent-foreground: 200 20% 95%;
+    --sidebar-border: 220 30% 18%;
+    --sidebar-ring: 180 100% 50%;
+
+    /* Custom tokens */
+    --cyan-glow: 180 100% 50%;
+    --amber-warn: 45 100% 50%;
+    --cool-grey: 215 15% 67%;
+    --deep-navy: 220 60% 7%;
+    --navy-light: 220 40% 12%;
+    --navy-mid: 220 35% 16%;
+
+    /* Glassmorphism */
+    --glass-bg: 220 50% 10% / 0.6;
+    --glass-border: 220 30% 25% / 0.3;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-rubik antialiased;
+  }
+}
+
+@layer utilities {
+  .font-rubik {
+    font-family: 'Rubik', sans-serif;
+  }
+
+  .font-mono-data {
+    font-family: 'Source Code Pro', monospace;
+  }
+
+  .text-cool-grey {
+    color: hsl(var(--cool-grey));
+  }
+
+  .bg-navy-light {
+    background-color: hsl(var(--navy-light));
+  }
+
+  .bg-navy-mid {
+    background-color: hsl(var(--navy-mid));
+  }
+
+  .border-navy-mid {
+    border-color: hsl(var(--navy-mid));
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 20px hsl(180 100% 50% / 0.3), 0 0 60px hsl(180 100% 50% / 0.1);
+  }
+
+  .glow-cyan-strong {
+    box-shadow: 0 0 30px hsl(180 100% 50% / 0.5), 0 0 80px hsl(180 100% 50% / 0.2);
+  }
+
+  .glow-red {
+    box-shadow: 0 0 20px hsl(0 80% 50% / 0.4), 0 0 60px hsl(0 80% 50% / 0.15);
+  }
+
+  .text-glow-cyan {
+    text-shadow: 0 0 20px hsl(180 100% 50% / 0.5);
+  }
+
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border));
+  }
+
+  .glass-strong {
+    background: hsl(220 50% 10% / 0.8);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid hsl(220 30% 25% / 0.4);
+  }
+}
+
+/* Heartbeat keyframes */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  14% { transform: scale(1.15); opacity: 1; }
+  28% { transform: scale(1); opacity: 0.6; }
+  42% { transform: scale(1.1); opacity: 0.9; }
+  56% { transform: scale(1); opacity: 0.6; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+@keyframes subtle-breathe {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes scan-line {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+@keyframes flash-red {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.3; }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(220 60% 7%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(220 30% 20%);
+  border-radius: 2px;
+}
+
+/* Leaflet map overrides */
+.leaflet-container {
+  background: hsl(220 60% 7%) !important;
+}
+.leaflet-tile-pane {
+  filter: brightness(0.6) contrast(1.2) saturate(0.3) hue-rotate(180deg) invert(1);
+}
+.leaflet-control-zoom a {
+  background: hsl(220 50% 10%) !important;
+  color: hsl(180 100% 50%) !important;
+  border-color: hsl(220 30% 18%) !important;
+}
+.leaflet-control-attribution {
+  display: none !important;
+}
